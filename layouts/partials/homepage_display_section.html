@@ -18,6 +18,9 @@
         {{ end }}
         <ul id="list" class="list-unstyled list-of-titles">
         {{ range $section.Data.Pages.ByDate.Reverse }}
+        {{- if .Param "mostlyHidden" -}}
+          {{- continue -}}
+        {{- end -}}
         <li class="{{if .Draft }}draft{{ end }}">
             <a href="{{ .RelPermalink}}">
             <span class="post-title">{{ .Title }}</span>

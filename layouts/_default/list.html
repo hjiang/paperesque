@@ -11,6 +11,9 @@
     <div class="sidepull-main">
       <ul id="list" class="list-unstyled list-of-titles">
         {{ range .Data.Pages.ByDate.Reverse }}
+        {{- if .Param "mostlyHidden" -}}
+          {{- continue -}}
+        {{- end -}}
         <li class="{{if .Draft }}draft{{ end }}">
           <a href="{{ .RelPermalink}}">
             <span class="post-title">{{ .Title }}</span>
