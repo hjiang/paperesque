@@ -80,7 +80,6 @@ body {
 
 @media(min-width: 720px) {
 
-  /* Make everything 10% smaller! */
   html {
     font-size: 16px;
   }
@@ -90,7 +89,7 @@ body {
     Images are scaled in the fitfigure shortcode with an assumption that the
     page is 652px wide. If you change this value, remeasure and change the value
     there too. */
-    width: 45rem;
+    width: 40.5rem;
     padding-left: 2em;
     padding-right: 2em;
     margin: 0 auto;
