@@ -1,6 +1,9 @@
-<link rel="stylesheet" href="{{ relURL "/css/reboot.css" }}" />
-<link rel="stylesheet" href="{{ relURL "/css/style.css" }}" />
-<link rel="stylesheet" href="{{ relURL "/css/syntax.css" }}" />
-<script type="text/javascript" src="{{ relURL "/js/main.js" }}"></script>
+{{- $rebootCSS := resources.Get "css/reboot.css" }}
+{{- $styleCSS := resources.Get "css/style.css" }}
+{{- $syntaxCSS := resources.Get "css/syntax.css" }}
+{{- $css := slice $rebootCSS $styleCSS $syntaxCSS | resources.Concat "css/paperesque.css" | minify | fingerprint }}
+{{- $js := resources.Get "js/paperesque.min.js" | fingerprint }}
+<link rel="stylesheet" href="{{ $css.RelPermalink }}" />
+<script type="text/javascript" src="{{ $js.RelPermalink }}"></script>
 
 <link href="https://fonts.googleapis.com/css?family=Lora&display=swap" rel="stylesheet">
