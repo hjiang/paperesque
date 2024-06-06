@@ -11,7 +11,7 @@
     "@juggle/resize-observer": "3.x"
   },
   "devDependencies": {
-    "parcel": "2.x"
+    "parcel": "2.12.0"
   },
   "targets": {
     "default": {
