@@ -2,7 +2,7 @@
   "name": "paperesque",
   "version": "0.1.0",
   "description": "paperesque Hugo theme",
-  "main": "index.js",
+  "main": "does-not-exist.js",
   "author": "Fabian Tamp (@capnfabs)",
   "license": "MIT",
   "private": true,
@@ -16,7 +16,8 @@
   "targets": {
     "default": {
       "source": "./js/main.js",
-      "distDir": "./static/js"
+      "distDir": "./assets/js"
     }
-  }
+  },
+  "packageManager": "yarn@1.22.19+sha1.4ba7fc5c6e704fce2066ecbfb0b0d8976fe62447"
 }
