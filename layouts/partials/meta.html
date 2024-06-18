@@ -21,8 +21,6 @@
 {{ end }}{{ end }}">
 
 {{ template "_internal/opengraph.html" . }}
-<meta property="og:site_name" content="{{ .Site.Title }}" />
-
-{{ partial "twitter_cards_default_small.html" . }}
+{{ template "_internal/twitter_cards.html" . }}
 
 {{ template "_internal/schema.html" . }}
