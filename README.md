@@ -2,16 +2,17 @@
 
 A lightweight [Hugo](https://gohugo.io) theme with a couple of neat tricks.
 
-You can see it in action on [capnfabs.net](https://capnfabs.net), or on the [Hugo Themes Example Site](https://themes.gohugo.io/theme/paperesque/).
+You can see it in action on [capnfabs.net](https://capnfabs.net).
 
 Here's what makes it special:
 
 - Has a shortcode for resizing images to fit the page, _and_ tools for removing originals from the output
-- Visual differentiation for drafts
 - Footnotes turn into margin notes when there's enough space.
+- Tools for editing and controlling publication:
+  - Visual differentiation for drafts
+  - The ability to "mostly hide" pages so that they're only accessible by knowing the URL.
 
 ## Install
-
 
 ### git subtree (easiest!)
 
@@ -47,7 +48,7 @@ You've got a bunch of options for the homepage:
 
 #### 1. A custom list of links.
 
-This was the _only_ thing supported until recently (Dec 2022-ish).
+This was the _only_ thing supported until Dec 2022-ish.
 
 Add something like this to your site's `config.toml`:
 
@@ -143,6 +144,19 @@ disableMarginNotes = true
 
 Alternatively, you can turn it off per-page by adding the `disableMarginNotes = true` to your front-matter for the page.
 
+### Make pages only visible / accessible by URL
+
+You can prevent a page from being publicly visible (included in lists etc) by adding the following to your front-matter:
+
+```toml
+sitemap:
+    disable: true
+params:
+    mostlyHidden: true
+```
+
+- Note that `sitemap.disable` is only available since [Hugo 0.125.0](https://github.com/gohugoio/hugo/releases/tag/v0.125.0), so ensure you're building with that if you're relying upon this feature.
+
 ## Testing against the example site
 
 You can build the example site with this theme with:
@@ -154,7 +168,7 @@ hugo serve --themesDir=../..
 
 ## Hacking / Modifying the JS
 
-The javascript in use (`static/js/main.js`) is built from the `./js/` directory. Here are instructions for how to modify the JS:
+The javascript in use (`assets/js/main.js`) is built from the `./js/` directory. Here are instructions for how to modify the JS:
 
 ### Set up
 First, you need to [install the `yarn` package manager](https://yarnpkg.com/getting-started/install).
@@ -172,7 +186,7 @@ to install the required dependencies.
 Run:
 
 ```sh
-yarn run parcel watch
+npx parcel watch
 ```
 
 Simple as that!
@@ -180,10 +194,8 @@ Simple as that!
 ### Production builds (i.e. before you commit code / deploy code)
 
 ```sh
-yarn run parcel build --no-source-maps
+npx parcel build --no-source-maps
 ```
-
-_Experimental Scope Hoisting_ inlines Parcel's module loader. It shaves off like 2kB Gzipped. Laugh all you want, but that's half a second at dial-up speeds 😉
 
 ### Other resources
 
